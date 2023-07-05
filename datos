@@ -1,0 +1,76 @@
+CREATE DATABASE OLTP;
+USE OLTP;
+
+
+-- Crear la tabla Clientes
+CREATE TABLE Clientes (
+    COD_ID INT PRIMARY KEY,
+    NOMBRE VARCHAR(50),
+    DIRECCION VARCHAR(100),
+    COD_ZON INT,
+    COD_VEND INT
+);
+
+-- Crear la tabla Vendedores
+CREATE TABLE Vendedores (
+    COD_VEND INT PRIMARY KEY,
+    NOM_VEND VARCHAR(50)
+);
+
+-- Crear la tabla Lineas
+CREATE TABLE Lineas (
+    COD_LIN INT PRIMARY KEY,
+    NOM_LIN VARCHAR(50)
+);
+
+-- Crear la tabla Zonas
+CREATE TABLE Zonas (
+    COD_ZON INT PRIMARY KEY,
+    ZONA VARCHAR(50)
+);
+
+-- Crear la tabla Ventas
+CREATE TABLE Ventas (
+    ID INT PRIMARY KEY,
+    COD_SUC INT,
+    COD_STEC INT, -- Columna de clave primaria de Servicio_Tecnico
+    COD_DIA INT,
+    NUM_DOC INT,
+    CONDICIONES VARCHAR(100),
+    COD_ID INT,
+    DESC_DOC VARCHAR(100),
+    FECHA DATETIME
+);
+
+-- Crear la tabla Ventas_Detalle
+CREATE TABLE Ventas_Detalle (
+    ID INT,
+    COD_AUTO INT,
+    NUM_LIN INT,
+    CANTIDAD FLOAT,
+    COSTO FLOAT,
+    VALOR FLOAT
+);
+
+-- Crear la tabla Autos
+CREATE TABLE Autos (
+    COD_AUTO INT PRIMARY KEY,
+    NOM_AUTO VARCHAR(50),
+    COD_GRUP INT,
+    COD_LIN INT,
+    MARCA VARCHAR(50),
+    COS_PROM_C MONEY,
+    PRECIO_VTA MONEY,
+);
+
+-- Crear la tabla Sucursales
+CREATE TABLE Sucursales (
+    COD_SUC INT PRIMARY KEY,
+    Sucursal VARCHAR(50),
+);
+
+-- Crear la tabla Grupos
+CREATE TABLE Grupos (
+    COD_GRUP INT PRIMARY KEY,
+    NOM_GRUP VARCHAR(50)
+);
